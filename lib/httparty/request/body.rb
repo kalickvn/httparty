@@ -39,7 +39,7 @@ module HTTParty
           memo += "\r\n"
           memo += "Content-Type: #{content_type(value)}\r\n" if file?(value)
           memo += "\r\n"
-          memo += file?(value) ? value.read : value.to_s
+          memo += file?(value) ? value.read.force_encoding("UTF-8") : value.to_s
           memo += "\r\n"
         end
 
